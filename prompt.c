@@ -1,26 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "shell.h"
-#include <stddef.h>
-#include <unistd.h>
-#include <string.h>
 
+/**
+ *prompt - Wait for a command
+ *
+ **/
 void prompt(void)
 {
-	char *prompt = "$ ";
+	char *prompt = "($) ";
         char *input = NULL;
+	/*int status;*/
 
 	while(1)
 	{
-
-		write(STDOUT_FILENO, prompt, strlen(prompt));
+		write(STDOUT_FILENO, prompt, _strlen(prompt));
 
 		input = read_input();
-		printf("%s\n", input);
-
-
+		get_cmd(input);
 	}
-
-
-
 }
