@@ -14,7 +14,7 @@ extern char **environ;
 
 #define CMD_DELIM " \t"
 
-void prompt(void);
+void prompt(int argc, char **argv);
 char *read_input(void);
 int _strlen(char *);
 char *get_cmd(char *);
@@ -25,4 +25,5 @@ char *_strcat(char *dest, char *src);
 char **tokenize_path(char *road_path);
 char **tokenizeinput (char *input);
 int get_stat(char **path, char **input);
+void _perror(char *shell_name, char *command_name);
 #endif
