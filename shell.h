@@ -10,6 +10,7 @@ extern char **environ;
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 
 #define CMD_DELIM " \t"
 
@@ -18,8 +19,10 @@ char *read_input(void);
 int _strlen(char *);
 char *get_cmd(char *);
 int check_cmd(char**);
-char *_getenv(char *);
+char *get_env(char *);
 int _strcmp(char *s1, char *s2, int n);
 char *_strcat(char *dest, char *src);
-
+char **tokenize_path(char *road_path);
+char **tokenizeinput (char *input);
+int get_stat(char **path, char **input);
 #endif

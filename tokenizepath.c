@@ -15,6 +15,5 @@ char **tokenize_path(char *road_path)
 		i++;
 		tokenize_path[i] = strtok(NULL, ":");
 	}
-	printf("%s\n", tokenize_path);
 	return (tokenize_path);
 }

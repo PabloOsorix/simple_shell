@@ -19,5 +19,11 @@ void prompt(void)
 		road_path = get_env("PATH");
 		path_tokenize = tokenize_path(road_path);
 
+		if (get_stat(path_tokenize, input_tokenize) == -1)
+		{
+			perror("No sirvió pa una mondá");
+		}
+
+
 	}
 }
