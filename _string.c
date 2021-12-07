@@ -18,6 +18,7 @@ int _strlen(char *s)
 	return (i);
 }
 
+#include "shell.h"
 /**
  *_strcmp - Compares two strings
  *@s1: String to compare
@@ -41,13 +42,14 @@ int _strcmp(char *s1, char *s2, int n)
 			i++;
 			continue;
 		}
-		break;		
+		break;
 	}
 	if (i == n)
 		return (1);
 	return (0);
 }
 
+#include "shell.h"
 /**
  *_strcat - Concatenates two strings
  *@dest: String final
@@ -58,23 +60,47 @@ int _strcmp(char *s1, char *s2, int n)
  **/
 
 char *_strcat(char *dest, char *src)
+
 {
-	int i;
-	int j;
+	int a;
+	int b;
 
-	i = 0;
-	while (*(dest + i) != '\0')
+	for (a = 0; dest[a] != '\0'; a++)
 	{
-		i++;
 	}
+	for (b = 0; src[b] != '\0'; a++, b++)
+	{
+		dest[a] = src[b];
+	}
+	dest[a] = '\0';
+	return (dest);
+}
 
-	j = 0;
-	while (*(src + j) != '\0')
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
+
+#include "shell.h"
+
+/**
+ * _strdup - returns a pointer to a newly allocated space in memory,
+ * which contains a copy of the string given as a parameter
+ * @str: the string
+ * Return: the pointer
+ */
+char *_strdup(char *str)
+{
+	int i, j;
+	char *dest;
+
+	if (str == NULL)
+		return (NULL);
+	for (i = 0; str[i] != '\0'; i++)
+		;
+
+	dest = malloc((i * sizeof(str[0])) + 1);
+	if (dest == NULL)
+		return (NULL);
+	for (j = 0; j <= i; j++)
+		dest[j] = str[j];
 
 	return (dest);
+	free(dest);
 }
