@@ -9,6 +9,7 @@ void prompt(int argc, char **argv)
 	char *prompt = "$ ", *input = NULL, *road_path = NULL, *path_copy = NULL;
         char **input_tokenize = NULL, **path_tokenize = NULL;
 	(void)argc;
+	void (*builtin)(char **, char *);
 	while(1)
 	{
 		if(isatty(STDIN_FILENO))
@@ -22,13 +23,21 @@ void prompt(int argc, char **argv)
 			free(input);
 			continue;
 		}
-		road_path = get_env("PATH");
-		path_copy = _strdup(road_path);
-		path_tokenize = tokenize_path(path_copy);
-
-		if (get_stat(path_tokenize, input_tokenize) == -1)
+		builtin = selectfunction(input_tokenize);
+		if (builtin == NULL)
 		{
-			_perror(argv[0], input_tokenize[0]);
+			road_path = get_env("PATH");
+			path_copy = _strdup(road_path);
+			path_tokenize = tokenize_path(path_copy);
+
+			if (get_stat(path_tokenize, input_tokenize) == -1)
+			{
+				_perror(argv[0], input_tokenize[0]);
+			}
+		}
+		else
+		{
+			exitf(input_tokenize, input);
 		}
 
 		free(path_tokenize);
