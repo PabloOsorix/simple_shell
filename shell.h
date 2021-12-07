@@ -14,6 +14,17 @@
 
 extern char **environ;
 
+/**
+ * struct buildin - Structure for selecting type of function.
+ * @program: Built-in function.
+ * @f: Calls the built-in function.
+ */
+typedef struct buildin
+{
+	char *program;
+	void (*f)(char **, char *);
+} order;
+
 void prompt(int argc, char **argv);
 
 char *read_input(void);
@@ -28,6 +39,7 @@ char *_strcat(char *dest, char *src);
 
 char **tokenize_path(char *road_path);
 char **tokenizeinput (char *input);
-
+void exitf(char **args, char *line);
+void (*selectfunction(char **args))(char **args, char *line);
 void _perror(char *shell_name, char *command_name);
 #endif
