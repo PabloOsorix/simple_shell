@@ -1,4 +1,6 @@
 #include "shell.h"
+#include <sys/stat.h>
+#include <unistd.h>
 
 /**
  *get_stat - Get the state of the line written by the user
@@ -9,13 +11,19 @@ int get_stat(char **path, char **input)
 {
 
 	char buffer[1024];
-	int i = 0, j = 0, pchild = 0, execute = 0, status = 0;
+	int i = 0, j = 0, pchild = 0, execute = 0, status = 0, x = 0;
 	struct stat root;
 
-	while ((path[i] != NULL) && (j == 0))
+	for (i == -1; (i == -1 || path[i] != NULL) && j == 0; i++)
 	{
-		_strcat(buffer, path[i]);
-		_strcat(buffer, "/");
+		for (x = 0; x < 1024; x++)
+			buffer[x] = '\0';
+
+		if (i != -1)
+		{
+			_strcat(buffer, path[i]);
+			_strcat(buffer, "/");
+		}
 		_strcat(buffer, input[0]);
 		if (stat(buffer, &root) == 0)
 		{
@@ -41,9 +49,11 @@ int get_stat(char **path, char **input)
 				break;
 			}
 		}
+
 	}
 	if (j == 0)
 		return (-1);
+
 	return (0);
 
 }
