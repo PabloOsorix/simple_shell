@@ -33,7 +33,7 @@ char *get_env(char *);
 int get_stat(char **path, char **input);
 
 int _strlen(char *);
-int _strcmp(char *s1, char *s2, int n);
+int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
 

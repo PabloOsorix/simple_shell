@@ -1,4 +1,11 @@
 #include "shell.h"
+
+/**
+ * exitf - Function to exit the shell.
+ * @args: This is the input command tokenaized yet.
+ * @line: Commmand introduced by user.
+ * Return: Exit the shell.
+ */
 void exitf(char **args, char *line)
 {
 	int i = 0;

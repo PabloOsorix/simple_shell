@@ -1,9 +1,8 @@
 #include "shell.h"
 
 /**
- *read_input - Get the line written by the user
+ *read_input - Get the line written by the user.
  *Return: A pointer to the line read
- *
  **/
 char *read_input(void)
 {

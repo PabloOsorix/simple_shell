@@ -2,17 +2,20 @@
 
 /**
  *prompt - Wait for a command
- *
+ *@argc: It is the number of argv.
+ *@argv: It´s the variadic variable argv that receives arguments
+ *unknown.
  **/
 void prompt(int argc, char **argv)
 {
 	char *prompt = "$ ", *input = NULL, *road_path = NULL, *path_copy = NULL;
-        char **input_tokenize = NULL, **path_tokenize = NULL;
+	char **input_tokenize = NULL, **path_tokenize = NULL;
 	(void)argc;
 	void (*builtin)(char **, char *);
-	while(1)
+
+	while (1)
 	{
-		if(isatty(STDIN_FILENO))
+		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, prompt, _strlen(prompt));
 
 		input = read_input();

@@ -11,7 +11,7 @@ int _strlen(char *s)
 {
 	int i;
 
-	for(i = 0; *(s + i) != '\0'; i++)
+	for (i = 0; *(s + i) != '\0'; i++)
 	{
 	}
 
@@ -19,33 +19,26 @@ int _strlen(char *s)
 }
 
 #include "shell.h"
+
 /**
- *_strcmp - Compares two strings
- *@s1: String to compare
- *@s2: String to compare
- *@n: Bytes to compare
- *Description: Function that compares two strings
- *Return: An integer less than, equal to, or greater
- *than zero if s1 is found, respectively, to be less than,
- *to match, or be greater than s2
- *
- **/
+ * _strcmp -  function should work exactly like strcmp
+ * @s1: String 1
+ * @s2: String 2
+ * Return: 0 if the strings are the same
+ * Different to zero if the strings are different.
+ */
 
-int _strcmp(char *s1, char *s2, int n)
+int _strcmp(char *s1, char *s2)
 {
-	int i = 0;
+	int indx;
 
-	while (i <= n)
+	for (indx = 0; s1[indx] != '\0' && s2[indx] != '\0'; indx++)
 	{
-		if (s1[i] == s2[i])
+		if (s1[indx] != s2[indx])
 		{
-			i++;
-			continue;
+			return (s1[indx] - s2[indx]);
 		}
-		break;
 	}
-	if (i == n)
-		return (1);
 	return (0);
 }
 
