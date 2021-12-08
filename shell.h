@@ -38,7 +38,7 @@ char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
 
 char **tokenize_path(char *road_path);
-char **tokenizeinput (char *input);
+char **tokenizeinput(char *input);
 void exitf(char **args, char *line);
 void (*selectfunction(char **args))(char **args, char *line);
 void _perror(char *shell_name, char *command_name);
