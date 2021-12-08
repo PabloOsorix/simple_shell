@@ -10,8 +10,8 @@ void prompt(int argc, char **argv)
 {
 	char *prompt = "$ ", *input = NULL, *road_path = NULL, *path_copy = NULL;
 	char **input_tokenize = NULL, **path_tokenize = NULL;
+	void(*builtin)(char **, char *);
 	(void)argc;
-	void (*builtin)(char **, char *);
 
 	while (1)
 	{
