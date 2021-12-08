@@ -11,7 +11,7 @@ int get_stat(char **path, char **input)
 	int i = 0, j = 0, pchild = 0, execute = 0, status = 0, x = 0;
 	struct stat root;
 
-	for (i == -1; (i == -1 || path[i] != NULL) && j == 0; i++)
+	for (i = -1; (i == -1 || path[i] != NULL) && j == 0; i++)
 	{
 		for (x = 0; x < 1024; x++)
 			buffer[x] = '\0';
