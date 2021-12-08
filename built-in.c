@@ -10,7 +10,6 @@ void (*selectfunction(char **args))(char **args, char *line)
 
 	order options[] = {
 		{"exit", exitf},
-		{/*"env", _env*/},
 		{NULL, NULL}
 	};
 
