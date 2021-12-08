@@ -33,7 +33,7 @@ int get_stat(char **path, char **input)
 			{
 				execute = execve(buffer, input, environ);
 				if (execute == -1)
-					exit(98)
+					exit(98);
 			}
 			else
 			{
