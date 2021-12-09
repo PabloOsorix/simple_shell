@@ -8,7 +8,7 @@
 int get_stat(char **path, char **input)
 {
 	char buffer[1024];
-	int i = 0, j = 0, pchild = 0, execute = 0, status = 0, x = 0;
+	int i = 0, j = 0, pid = 0, execute = 0, status = 0, x = 0;
 	struct stat root;
 
 	for (i = -1; (i == -1 || path[i] != NULL) && j == 0; i++)
@@ -23,13 +23,13 @@ int get_stat(char **path, char **input)
 		_strcat(buffer, input[0]);
 		if (stat(buffer, &root) == 0)
 		{
-			pchild = fork();
-			if (pchild == -1)
+			pid = fork();
+			if (pid == -1)
 			{
 				perror("Error:");
 				return (1);
 			}
-			if (pchild == 0)
+			if (pid == 0)
 			{
 				execute = execve(buffer, input, environ);
 				if (execute == -1)
