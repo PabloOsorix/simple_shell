@@ -40,7 +40,8 @@ char **tokenizeinput(char *input);
 void exitf(char **args, char *line);
 void (*selectfunction(char **args))(char **args, char *line);
 void _perror(char *shell_name, char *command_name);
-
+int d_printf(int fd, const char *format, ...);
+int _env(char **av, int line);
 #define SHELL_NAME hsh
 
 #endif
