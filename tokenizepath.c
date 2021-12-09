@@ -15,6 +15,9 @@ char **tokenize_path(char *road_path)
 	size_t i = 0;
 
 	tokenize_path = malloc(sizeof(char *) * 1024);
+
+	if(!tokenize_path)
+		exit(EXIT_FAILURE);
 	tokenize_path[0] = strtok(road_path, ":");
 
 	while (tokenize_path[i])

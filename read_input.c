@@ -15,7 +15,7 @@ char *read_input(void)
 		free(input);
 		exit(EXIT_SUCCESS);
 	}
-	if (input[0] == '\n' || input[0] == EOF)
+	if (input[0] == '\n')
 	{
 		return (input);
 	}
