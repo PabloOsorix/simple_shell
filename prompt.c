@@ -6,7 +6,7 @@
  *@argv: It´s the variadic variable argv that receives arguments
  *unknown.
  **/
-void prompt(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	char *prompt = "$ ", *input = NULL, *road_path = NULL, *path_copy = NULL;
 	char **input_tokenize = NULL, **path_tokenize = NULL;
@@ -42,10 +42,14 @@ void prompt(int argc, char **argv)
 		{
 			exitf(input_tokenize, input);
 		}
-
 		free(path_tokenize);
 		free(path_copy);
 		free(input_tokenize);
 		free(input);
+
 	}
+	free(path_tokenize);
+	free(path_copy);
+	free(input_tokenize);
+	free(input);
 }
