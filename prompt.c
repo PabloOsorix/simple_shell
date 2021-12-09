@@ -1,3 +1,7 @@
+#include <string.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include "shell.h"
 
 /**
@@ -14,8 +18,7 @@ int main(int argc, char **argv)
 	void (*builtin)(char **, char *);
 	(void)argc;
 
-	while (1)
-	{
+	do {
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, prompt, _strlen(prompt));
 
@@ -23,6 +26,7 @@ int main(int argc, char **argv)
 		input_tokenize = tokenizeinput(input);
 		if (input_tokenize[0] == NULL)
 		{
+			_perror(argv[0], input_tokenize[0]);
 			free(input_tokenize);
 			free(input);
 			continue;
@@ -48,5 +52,5 @@ int main(int argc, char **argv)
 		free(input_tokenize);
 		free(input);
 
-	}
+	} while (1);
 }
