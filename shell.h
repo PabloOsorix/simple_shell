@@ -10,7 +10,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#define CMD_DELIM " \t"
 
 extern char **environ;
 
@@ -28,7 +27,6 @@ typedef struct buildin
 void prompt(int argc, char **argv);
 
 char *read_input(void);
-char *get_cmd(char *);
 char *get_env(char *);
 int get_stat(char **path, char **input);
 
@@ -42,4 +40,7 @@ char **tokenizeinput(char *input);
 void exitf(char **args, char *line);
 void (*selectfunction(char **args))(char **args, char *line);
 void _perror(char *shell_name, char *command_name);
+
+#define SHELL_NAME hsh
+
 #endif
