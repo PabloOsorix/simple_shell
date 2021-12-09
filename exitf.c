@@ -15,7 +15,6 @@ void exitf(char **args, char *line)
 		free(args[i]);
 	}
 	free(args);
-	/* free(line);*/
 	(void)line;
 	exit(EXIT_SUCCESS);
 }
