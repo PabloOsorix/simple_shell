@@ -1,10 +1,11 @@
 #include "shell.h"
 
 /**
- *prompt - Wait for a command
+ *main - Wait for a command
  *@argc: It is the number of argv.
  *@argv: It´s the variadic variable argv that receives arguments
  *unknown.
+ *Return: exit success.
  **/
 int main(int argc, char **argv)
 {
@@ -48,8 +49,4 @@ int main(int argc, char **argv)
 		free(input);
 
 	}
-	free(path_tokenize);
-	free(path_copy);
-	free(input_tokenize);
-	free(input);
 }
